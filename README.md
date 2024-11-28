@@ -1,4 +1,4 @@
-# TASK PORGRAMMING
+# TASK PROGRAMMING
 - Task is Unit of Work
 - .net way of grouping work together
 - tells scheduler to execute this on separate thread
@@ -1049,7 +1049,6 @@ public async Task HandleOperationsWithRetryAndRollbackAsync()
 - Avoid Throwing Exceptions in finally Blocks: Ensure that finally blocks do not throw exceptions, as this can obscure the original exception.
 
 ## Synchronous call vs asynchronous call
-
 - Understanding the difference between synchronous and asynchronous calls is crucial for designing efficient and responsive applications. Here’s a breakdown of both concepts:
 
 - **Synchronous Calls**
