@@ -1103,3 +1103,34 @@ public async Task<string> LongRunningOperationAsync()
 - Web Applications: Asynchronous calls can handle more concurrent requests, improving the scalability of web applications.
 - **Example Scenario**
 - Imagine a web application that fetches data from a remote server. Using synchronous calls, each request would block the server thread, reducing the number of concurrent users the server can handle. With asynchronous calls, the server can handle multiple requests simultaneously, improving performance and user experience.
+
+## Thread VS Task
+- Thread
+    - It represents the actual OS thead.
+    - we have higher control over thread
+    - It cna be suspended, aborted, resume etc.
+    -  we can observe the state of thread, can set thread level properties
+- Threadpool is the wrapper over pool of threads and is maintained by CLR
+-Task
+    - class from TPL offers the of both words.
+    - It does not create OS thread
+    - Executed by Task Scheduler. The default scheduler simply runs on the ThreadPool
+    - Task allows u to find out when it finishes to return a result.
+
+## What is the difference between Concurrency and Parallelism?
+- Concurrency is when two or more tasks can start, run, and complete in overlapping time periods. It doesn’t necessarily mean they’re running at the same instant. 
+- Parallelism is when tasks literally run at the same time, like in a multicore processor.
+
+## CORS error (Corss-Origin Resource sharing)
+- In program.cs
+```csharp
+builder.Services.AddCors();
+```
+- use middleware as below before UseAuthentication and authorization. 
+```csharp
+app.UseCors(opt =>{
+  opt.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000"); // path of client app.
+});
+```
+
+ 
