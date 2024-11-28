@@ -211,7 +211,7 @@ SpinLock sl = new SpinLock(); // define varaible
 sl.Enter(bool variable); // apply lock
 sl.Exit(); //release a lock
 ```
--** disadvantage** of Spin lock
+- **disadvantage** of Spin lock
   - there can be lock recursion situation (means we already have lock and we are trying to take a lock again). This situation is difficult to handle with spin lock
 
 - Mutex
