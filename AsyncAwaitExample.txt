@@ -1,0 +1,54 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace C_Concepts
+{
+    public class AsyncAwaitExample
+    {
+        public async Task GetString()
+        {
+            Console.WriteLine("Before Aync await example call");
+            await AnotherStringMethod();
+            Console.WriteLine("After Aync await example call");
+        }
+
+        public async Task AnotherStringMethod() { 
+            Console.WriteLine("AnotherStringMethod"); 
+            await CreatString(); 
+         }
+
+        public Task CreatString()
+        {
+            Console.WriteLine("Async await method call");
+            Thread.Sleep(4000);
+          //  throw new Exception();
+            return Task.CompletedTask;
+        }
+
+        public async Task<string> FirstOperationAsync()
+        {
+            await Task.Delay(1000); // Simulate async work
+            return "Data from first operation";
+        }
+
+        public async Task<string> SecondOperationAsync(string input)
+        {
+            await Task.Delay(1000); // Simulate async work
+            return $"Processed {input}";
+        }
+
+        public async Task<string> CombinedOperationsAsync()
+        {
+            Console.WriteLine("Before");
+            var firstResult =await  FirstOperationAsync();
+            Console.WriteLine("after first");
+            var secondResult = await SecondOperationAsync(firstResult);
+            Console.WriteLine("Before");
+            return secondResult;
+        }
+
+    }
+}
