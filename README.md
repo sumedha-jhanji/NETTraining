@@ -1,3 +1,46 @@
+# .NET Concepts
+
+## IEnumerator, IEnumerable, ICollection, IList, List
+- IEnumerator
+    -  has one method to enumerate the next object.
+    -  Supports simple iteration over a collection.
+    -  Key members: current, MoveNext(), Reset()
+    -  Usage: Typically used to implement custom iteration over a collection. Usually implemented along with IEnumerable.
+- IEnumerable
+    - can only loop through data and no manipulation of collection, Count the records, GetEnumerator() method
+    - Purpose: Exposes an enumerator that provides iteration over a collection.
+    - Namespace: System.Collections for non-generic, System.Collections.Generic for generic.
+    - Key Members: GetEnumerator(): Returns an enumerator that iterates through a collection.
+    - Usage: Provides a simple way to iterate over a collection using a foreach loop. Base interface for all non-generic collections that can be enumerated.
+- ICollection
+    - can do add, remove
+    - Purpose: Defines size, enumerators, and synchronization methods for all nongeneric collections.
+    - Namespace: System.Collections for non-generic, System.Collections.Generic for generic.
+    - Key Members:
+        - Count: Gets the number of elements in the collection.
+        - IsReadOnly: Gets a value indicating whether the collection is read-only.
+        - Add(T item), Remove(T item), Clear(): Methods to modify the collection.
+    - Usage: Represents collections like lists, queues, and sets that can be enumerated and manipulated.
+- IList
+    - add, insert, remove, IndexOf (have option to modify collection)
+    - Purpose: Represents a collection of objects that can be individually accessed by index.
+    - Namespace: System.Collections for non-generic, System.Collections.Generic for generic.
+    - Key Members:
+        - Inherits all members of ICollection.
+        - this[int index]: Gets or sets the element at the specified index.
+        - IndexOf(T item): Returns the index of a specific item.
+        - Insert(int index, T item): Inserts an item at the specified index.
+        - RemoveAt(int index): Removes the item at the specified index.
+    - Usage: Provides additional functionality over ICollection by allowing indexed access.
+- List
+    - Add, RemoveRange, InsertAt, Remove
+    - .NET is a versatile, dynamic data structure provided by the System.Collections.Generic namespace.
+    - offers a range of methods and properties for working with collections of objects.
+    - Supports type safety by allowing you to specify the type of elements it can hold.
+    - Automatically resizes as elements are added or removed.
+    - Elements can be accessed by their zero-based index.
+    - Provides a range of methods for adding, removing, searching, and sorting elements.
+
 # TASK PROGRAMMING
 - Task is Unit of Work
 - .net way of grouping work together
