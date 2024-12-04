@@ -1176,4 +1176,26 @@ app.UseCors(opt =>{
 });
 ```
 
+# Interview Questions on various technologies
+
+## DENSE_RANK()
+- The DENSE_RANK() function in SQL is used to assign ranks to rows within a partition of a result set, with no gaps in the ranking values. This means that if two or more rows have the same rank, the next rank will be the immediate next integer, without skipping any numbers.
+```sql
+DENSE_RANK() OVER (PARTITION BY column1 ORDER BY column2)
+```
+- PARTITION BY: Divides the result set into partitions to which the DENSE_RANK() function is applied.
+- ORDER BY: Specifies the order of rows in each partition.
+- Example
+- Suppose you have a table employees with columns department and salary. You want to rank employees within each department based on their salary:
+```sql
+SELECT 
+    employee_id, 
+    department, 
+    salary, 
+    DENSE_RANK() OVER (PARTITION BY department ORDER BY salary DESC) AS rank
+FROM 
+    employees;
+```
+In this example, employees within each department are ranked by their salary in descending order. If two employees have the same salary, they will receive the same rank, and the next rank will be the next consecutive number.
+
  
